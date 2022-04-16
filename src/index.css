@@ -26,7 +26,8 @@ nav {
   margin-right: 15px;
   overflow-y: scroll;
   text-align: center;
-  width: 250px;
+  width: 280px;
+  overflow-y: hidden;
 }
 nav ul {
   align-items: center;
