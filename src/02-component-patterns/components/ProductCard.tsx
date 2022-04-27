@@ -1,27 +1,20 @@
 import { useProduct } from '../hooks/useProduct';
+import { createContext } from 'react';
 
 import styles from '../styles/styles.module.css';
-import noImage from './assets/no-image.jpg';
-export const ProductCard = () => {
+
+import { ProductContextProps, ProductCardsProps } from '../interfaces/interfaces';
+
+export const ProductContext = createContext({} as ProductContextProps);
+// proveedor de informacion
+const { Provider } = ProductContext;
+
+export const ProductCard = ({ children, product }: ProductCardsProps) => {
   const { counter, incressBy } = useProduct();
 
   return (
-    <div className={styles.productCard}>
-      <img className={styles.productImg} src='./coffee-mug.png' alt='coffe mug' />
-      {/* <img className={styles.productImg} src={noImage} alt='No Image' /> */}
-
-      <span className={styles.productDescription}>Coffe Mug</span>
-      <div className={styles.buttonsContainer}>
-        <button className={styles.buttonMinus} onClick={() => incressBy(-1)}>
-          -
-        </button>
-
-        <div className={styles.countLabel}>{counter}</div>
-
-        <button className={styles.buttonAdd} onClick={() => incressBy(1)}>
-          +
-        </button>
-      </div>
-    </div>
+    <Provider value={{ counter, incressBy, product }}>
+      <div className={styles.productCard}>{children}</div>
+    </Provider>
   );
 };
