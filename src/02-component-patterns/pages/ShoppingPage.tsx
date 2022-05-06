@@ -1,9 +1,11 @@
-import { ProductBottons, ProductCard, ProductImage, ProductTitle } from '../components/index';
+import { ProductBottons, ProductCard, ProductImage, ProductTitle } from "../components/index";
+
+import "../styles/custom-styles.css";
 
 const product = {
-  id: '1',
-  title: 'Coffe Mug - car',
-  img: './coffee-mug.png',
+  id: "1",
+  img: "./coffee-mug.png",
+  title: "Coffe Mug - car",
 };
 
 export const ShoppingPage = () => {
@@ -18,20 +20,21 @@ export const ShoppingPage = () => {
 
       <div
         style={{
-          display: ' flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+          display: " flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product}>
-          <ProductCard.Image />
-          <ProductCard.Title title='Jamaica' />
-          <ProductCard.Bottons />
+        <ProductCard className="bg-dark text-white" product={product}>
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Title title="Jamaica" className="text-bold" />
+          <ProductCard.Bottons className="custom-bottons" />
         </ProductCard>
-        <ProductCard product={product}>
-          <ProductImage />
-          <ProductTitle />
-          <ProductBottons />
+
+        <ProductCard className="bg-dark text-white" product={product}>
+          <ProductImage className="custom-image" />
+          <ProductTitle className="text-bold" />
+          <ProductBottons className="custom-bottons" />
         </ProductCard>
       </div>
     </div>
